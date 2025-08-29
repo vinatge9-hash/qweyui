@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:300,400,500,600,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--  -->
+  <title>Niyantri - Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { primary: '#4F46E5' } } } }
+  </script>
+</head>
+<body style="font-family: 'Inter', sans-serif;" class="bg-gray-50 text-gray-900 min-h-screen">
+  <!-- Header -->
+  <header class="w-full bg-white shadow-sm">
+    <nav class="w-full max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="h-9 w-9 rounded-full bg-primary text-white flex items-center justify-center font-bold">N</span>
+        <span class="font-bold text-xl tracking-tight">Niyantri</span>
+      </div>
+      <div class="flex items-center space-x-6 text-sm">
+        <a href="./index.html" class="text-gray-700 hover:text-primary">Home</a>
+        <a href="./electronics.html" class="text-gray-700 hover:text-primary">Electronics</a>
+        <a href="./home-products.html" class="text-gray-700 hover:text-primary">Home-Products</a>
+        <a href="./clothes.html" class="text-gray-700 hover:text-primary">Clothes</a>
+        <a href="./cart.html" class="relative text-gray-700 hover:text-primary">Cart <span id="cart-count-top" class="inline-block ml-1 bg-black/10 rounded px-2 text-xs">0</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Cart -->
+  <main class="w-full px-4 py-6">
+    <h1 class="text-2xl font-bold mb-4">Your Cart</h1>
+    <div id="cart-container" class="grid grid-cols-1 gap-4"></div>
+    <div class="mt-6 flex justify-between items-center">
+      <div class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></div>
+      <div id="paypal-button-container"></div>
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-gray-500">© 2025 Niyantri</footer>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/app.js"></script>
+  <!-- PayPal SDK (sandbox) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+    });
+  </script>
+</body>
+</html>
